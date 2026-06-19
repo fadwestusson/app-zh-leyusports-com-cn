@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://fadwestusson.github.io/app-zh-leyusports-com-cn/sitemap.xml
