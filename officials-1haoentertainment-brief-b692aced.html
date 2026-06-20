@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>壹号娱乐 · 资料整理笔记</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, system-ui, -apple-system, 'Helvetica Neue', sans-serif;
+            min-height: 100vh;
+            background: linear-gradient(145deg, #fcedd9 0%, #fcd9b6 45%, #fbc8a0 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1.5rem;
+            line-height: 1.7;
+            color: #2e241e;
+        }
+
+        .card {
+            max-width: 820px;
+            width: 100%;
+            background: rgba(255, 250, 244, .95);
+            backdrop-filter: blur(4px);
+            border-radius: 40px 40px 32px 32px;
+            box-shadow: 0 20px 35px -8px rgba(120, 70, 30, 0.18), 0 6px 12px -4px rgba(80, 45, 20, 0.08);
+            padding: 2.8rem 2.5rem 3rem;
+            transition: all .25s ease;
+            border: 1px solid rgba(255, 235, 215, .5);
+        }
+
+        .card:hover {
+            box-shadow: 0 28px 48px -12px rgba(140, 80, 35, 0.20);
+        }
+
+        h1 {
+            font-size: 2.6rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #7c4f2c, #9b693e);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 0.2rem;
+            line-height: 1.2;
+        }
+
+        .subhead {
+            font-size: 1.05rem;
+            color: #6d533f;
+            border-left: 4px solid #dbaa77;
+            padding-left: 1rem;
+            margin: 0.6rem 0 1.8rem 0;
+            font-weight: 400;
+            opacity: 0.85;
+        }
+
+        h2 {
+            font-size: 1.35rem;
+            font-weight: 500;
+            color: #4f3623;
+            margin: 2rem 0 0.8rem;
+            border-bottom: 2px solid #ebd3bc;
+            padding-bottom: 0.25rem;
+            display: inline-block;
+        }
+
+        p {
+            margin-bottom: 1.2rem;
+            font-size: 1rem;
+            color: #3d2c1f;
+        }
+
+        .intro-highlight {
+            background: #f9ede2;
+            padding: 1.25rem 1.5rem;
+            border-radius: 20px;
+            margin: 1.6rem 0 2rem;
+            border-left: 6px solid #c3895b;
+            font-size: 1rem;
+        }
+
+        .intro-highlight strong {
+            color: #7a4d2a;
+        }
+
+        .list-item {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            align-items: flex-start;
+        }
+
+        .list-icon {
+            flex-shrink: 0;
+            width: 30px;
+            height: 30px;
+            background: #eddacb;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: #694b31;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .list-text {
+            flex: 1;
+        }
+
+        .list-text strong {
+            color: #5a3f2b;
+        }
+
+        .quote-tip {
+            background: #faf1e7;
+            padding: 1.2rem 1.8rem;
+            border-radius: 30px 12px 30px 12px;
+            margin: 2rem 0 1.2rem;
+            font-style: normal;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.02);
+            border: 1px solid #f0dccb;
+            color: #4f3725;
+            position: relative;
+        }
+
+        .quote-tip::before {
+            content: "📎";
+            margin-right: 8px;
+            font-size: 1.2rem;
+        }
+
+        .faq-mini {
+            margin: 2.2rem 0 1.8rem;
+            display: grid;
+            gap: 1rem;
+        }
+
+        .faq-item {
+            background: #fffbf7;
+            padding: 0.9rem 1.2rem;
+            border-radius: 18px;
+            border: 1px solid #e6d2be;
+        }
+
+        .faq-q {
+            font-weight: 500;
+            color: #563d28;
+            margin-bottom: 0.2rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .faq-q::before {
+            content: "Q";
+            background: #d4b69a;
+            color: #2e1e12;
+            font-size: 0.8rem;
+            font-weight: 700;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .faq-a {
+            padding-left: 32px;
+            color: #4e3828;
+            font-size: 0.95rem;
+        }
+
+        .link-sentence {
+            background: #f6e7db;
+            padding: 0.9rem 1.5rem;
+            border-radius: 60px;
+            display: inline-block;
+            margin: 0.5rem 0 0.2rem;
+            font-size: 1.05rem;
+            transition: background .2s;
+        }
+
+        .link-sentence a {
+            color: #7b4a23;
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 2px solid #cfaa86;
+            padding-bottom: 1px;
+        }
+
+        .link-sentence a:hover {
+            color: #a15f2f;
+            border-bottom-color: #a76f3e;
+        }
+
+        .visit-note {
+            margin-top: 2.8rem;
+            padding-top: 1.6rem;
+            border-top: 2px dashed #dcc6b2;
+            text-align: center;
+            font-size: 0.95rem;
+            color: #5b4535;
+        }
+
+        .visit-note span {
+            background: #ecdccc;
+            padding: 0.15rem 0.8rem;
+            border-radius: 30px;
+        }
+
+        hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #e1cdba, transparent);
+            margin: 1.8rem 0;
+        }
+
+        @media (max-width: 600px) {
+            .card {
+                padding: 2rem 1.5rem;
+                border-radius: 28px;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+            .subhead {
+                font-size: 0.9rem;
+                padding-left: 0.8rem;
+            }
+            .list-item {
+                flex-direction: column;
+                gap: 0.3rem;
+            }
+            .list-icon {
+                width: 26px;
+                height: 26px;
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="card">
+    <h1>壹号娱乐</h1>
+    <div class="subhead">一份围绕信息索引与资料整理的说明页 · 简洁记录</div>
+
+    <p>在浏览、回溯或整理与娱乐内容相关的线索时，保持资料的结构化和可查性显得尤为重要。<strong>壹号娱乐</strong> 作为一个可供参考的信息节点，其页面布局、分类逻辑和素材组织方式，本身就是一种值得归档的观察样本。以下从资料整理者的角度，梳理出若干值得留意的侧面。</p>
+
+    <div class="intro-highlight">
+        <strong>▎资料整理视角</strong> —— 本页并非官方介绍，而是基于公开页面结构所做的笔记式归纳，便于快速索引或二次引用。
+    </div>
+
+    <h2>· 信息轮廓</h2>
+    <p>从首页的层级和模块分布来看，内容大致围绕娱乐资讯、主题分类以及入口引导展开。页面没有过度堆砌，而是采用相对克制的卡片与列表组合，在视觉上留出了呼吸感。对于习惯从结构入手理解站点的浏览者来说，这种布局降低了认知负荷。</p>
+
+    <div class="list-item">
+        <div class="list-icon">①</div>
+        <div class="list-text"><strong>分类标签</strong> — 页面中出现的若干主题区块，各自对应不同的内容方向，可通过导航或锚点快速定位。建议整理时留意标签的层级关系，避免混淆。</div>
+    </div>
+    <div class="list-item">
+        <div class="list-icon">②</div>
+        <div class="list-text"><strong>视觉素材</strong> — 图片与图文组合的呈现方式偏重于氛围传递，适合作为情绪板或风格参考。若用于资料存档，建议配合文字摘要一起保存。</div>
+    </div>
+    <div class="list-item">
+        <div class="list-icon">③</div>
+        <div class="list-text"><strong>链接与跳转</strong> — 内部链接逻辑清晰，多数指向具体的细分页面。从索引角度看，可以按照「一级页面 — 二级页面」的树状结构建立自己的书签体系。</div>
+    </div>
+
+    <div class="quote-tip">
+        引用提示：在对页面进行存档或二次分发时，请注明信息来源为 <strong>壹号娱乐</strong> 相关页面，并注意保持引用内容的完整性。信息索引的价值在于可追溯。
+    </div>
+
+    <h2>· 适用场景笔记</h2>
+    <p>如果你正在进行以下工作，或许可以将 <a href="https://officials-1haoentertainment.com" style="color:#7b4a23; font-weight:500; text-decoration: underline wavy #dbaa77 1.5px;">壹号娱乐</a> 的页面结构作为一个比对样本：</p>
+    <ul style="list-style: none; padding-left: 0.5rem; margin-bottom: 1.5rem;">
+        <li style="margin-bottom: 0.5rem;">✦ 娱乐类网站的信息架构分析</li>
+        <li style="margin-bottom: 0.5rem;">✦ 首页内容优先级与视觉节奏的案例收集</li>
+        <li style="margin-bottom: 0.5rem;">✦ 多板块协调呈现时的布局方案参考</li>
+        <li style="margin-bottom: 0.5rem;">✦ 暖色调品牌页的色彩搭配与卡片设计</li>
+    </ul>
+
+    <div class="faq-mini">
+        <div class="faq-item">
+            <div class="faq-q">该页面是否包含详细分类目录？</div>
+            <div class="faq-a">首页主要展示概览性内容，具体分类目录需通过导航或链接进入对应子页面查看。建议先通览首页的板块标题，再根据兴趣深入。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">资料整理时需要注意什么？</div>
+            <div class="faq-a">保持引用路径的准确性，记录抓取时间与页面版本。另外注意，页面中的图片和字体可能涉及授权，仅限个人研究时参考。</div>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="link-sentence">
+        📂 信息索引指向 · <a href="https://officials-1haoentertainment.com">壹号娱乐</a>
+    </div>
+    <p style="margin-top: 0.8rem; font-size: 0.95rem; color: #5f4737;">
+        本页内容仅为个人整理笔记，所有描述基于公开页面事实，不构成任何推荐或评价。如需获取最新完整信息，建议直接浏览对应页面。
+    </p>
+
+    <div class="visit-note">
+        <span>📋 访问记录 · 可复用索引标签 #壹号娱乐 #资料整理</span>
+    </div>
+</div>
+</body>
+</html>
